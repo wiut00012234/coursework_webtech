@@ -1,0 +1,86 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <form action="/edit-student/<%= student._id %>" method="post">
+                    <h3>Edit a student!</h3>
+                    <hr>
+                    <!-- NAME FIELD -->
+                    <div class="form-field">
+                        <label for="field" class="label--required">Name</label>
+                        <section>
+                            <input id="field" value="<%= student.firstName %>" name="firstName" required type="text" placeholder="Jane" />
+                        </section>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="field2" class="label--required">Last name</label>
+                        <section>
+                            <input id="field2" value="<%= student.lastName %>" name="lastName" required type="text" placeholder="Doe" />
+                        </section>
+                    </div>
+
+                    <!-- Level FIELD -->
+                    <div class="form-field">
+                        <label for="level" class="label--required">Level</label>
+                        <section>
+                            <select name="level" id="level" required>
+                                <option value="3"></option>
+                                <option value="3">level 3</option>
+                                <option value="4">level 4</option>
+                                <option value="5">level 5</option>
+                                <option value="6">level 6</option>
+                            </select>
+                        </section>
+                    </div>
+
+                    <!-- Major FIELD -->
+                    <div class="form-field">
+                        <label for="major" class="label--required">Major</label>
+                        <section>
+                            <select name="major" id="major" required>
+                                <option value="Business Administration"></option>
+                                <option value="Business Administration">Business Administration</option>
+                                <option value="Economics & Economics with Finance">Economics & with Finance</option>
+                                <option value="Business Information Systems">Business Information Systems</option>
+                                <option value="Commercial Law">Commercial Law</option>
+                            </select>
+                        </section>
+                    </div>
+
+                    <!-- Hobby -->
+                    <div class="form-field">
+                        <label for="hobby" class="label--required">Hobby</label>
+                        <section>
+                            <input value="<%= student.hobby %>" id="hobby" name="hobby" required type="text" placeholder="playing ping pong" />
+                        </section>
+                    </div>
+                    <!-- viewAboutUniversity -->
+                    <div class="form-field">
+                        <label for="viewAboutUniversity" class="label--required">comment about university</label>
+                        <section>
+                            <textarea name="viewAboutUniversity" required id=""><%= student.viewAboutUniversity %></textarea>
+                        </section>
+                    </div>
+                    <!-- contract status -->
+                    <div class="form-field">
+                        <label for="contractStatus" class="label--required">Contract</label>
+                        <section>
+                            <select name="contractStatus" id="contractStatus">
+                                <option value="false"></option>
+                                <option value="true">yes i did payment</option>
+                                <option value="false">not yet</option>
+                            </select>
+                        </section>
+                    </div>
+                    <!-- BUTTONS -->
+                    <div class="form-buttons">
+                        <button class="a-btn">Submit</button>
+                    </div>
+
+                </form>
+            </main>
+            <%- include('../includes/end.ejs') %>

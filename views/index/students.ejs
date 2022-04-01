@@ -1,0 +1,37 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <div class="container mt-5">
+                <div class="row">
+                    <% if (students.length > 0) { %>
+                        <% for (let student of students) { %>
+                            <div class="col-md-3 col-sm-6 item mb-2">
+                                <div class="card item-card card-block">
+                                    <a href="/edit-student/<%= student._id %>">
+                                        <img class="imgIcon" src="https://cdn1.iconfinder.com/data/icons/pikku-ui/16/dots_vertical-512.png" alt="">
+                                    </a>
+                                    <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+                                    <h5 class="item-card-title mt-3 mb-3">
+                                        <%= student.firstName %>
+                                            <%= student.lastName %>
+                                    </h5>
+                                    <h5 class="card-text">level
+                                        <%= student.level %> ||
+                                            <%= student.major %> faculty</h5>
+                                    <a href="/student/<%= student._id %>" class="btn btn-primary">View</a>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% } else { %>
+                                    <h1>No Students Found!</h1>
+                                    <% } %>
+                </div>
+
+            </div>
+
+
+            </div>
+            <%- include('../includes/end.ejs') %>

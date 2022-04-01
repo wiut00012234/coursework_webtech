@@ -1,0 +1,41 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <div class="container mt-5">
+                <h4>
+                    <%= student.firstName %>
+                        <%= student.lastName %>
+                </h4>
+                <p>
+                    level
+                    <%= student.level %> student of
+                        <%= student.major %> faculty
+                </p>
+                <p>
+                    <%= student.firstName %>
+                        <%= student.lastName %>
+                            is interested in
+                            <%= student.hobby %>
+                </p>
+                <p>
+                    contract status:
+                    <% if (student.contractStatus) { %>
+                        ✅
+                        <% } else { %>
+                            ❌
+                            <% } %>
+                </p>
+                <h5>
+                    comments for WIUT:
+                    <%= student.viewAboutUniversity %>
+                </h5>
+                <form method="post" action="/delete-student">
+                    <input type="hidden" value="<%= student._id %>" name="studentId" />
+                    <button class="btn btn-danger" type="submit">Delete Student</button>
+                </form>
+                <a href="/edit-student/<%= student._id %>" class="btn btn-primary mt-2">Edit Student Info</a>
+            </div>
+            <%- include('../includes/end.ejs') %>
